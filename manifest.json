@@ -7,13 +7,13 @@
   "enableOnMobile": false,
   "version": {
     "major": 0,
-    "minor": 0,
-    "patch": 1
+    "minor": 1,
+    "patch": 0
   },
   "theme": [
     "dark"
   ],
-  "description": "",
+  "description": "A dark theme with prominent jade green accents and warm cream text, inspired by Osaka aesthetics. Features solid jade bullets, bright jade links, and carefully balanced readability.",
   "requestNative": false,
   "requiredScopes": []
 }

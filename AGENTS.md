@@ -9,7 +9,6 @@ The project structure follows the RemNote theme template with CSS-based styling.
 - **Author**: elcokiin
 - **Theme Type**: Dark theme
 - **Main Files**: `manifest.json` (theme metadata), `theme.css` (theme styles)
-- **Reference Files**: `osaka-jade/` directory contains reference configuration files from the author's Arch Linux setup (for color palette reference only - not part of the theme)
 
 ## Repository Structure
 
@@ -17,9 +16,8 @@ The project structure follows the RemNote theme template with CSS-based styling.
 .
 ├── manifest.json           # Theme metadata and configuration
 ├── theme.css              # Main theme CSS file (RemNote styles)
-├── osaka-jade/            # Reference configs (Alacritty, Kitty, Hyprland, etc.)
-│   ├── backgrounds/       # Background images for reference
-│   └── *.conf, *.theme    # Various app theme configs (reference only)
+├── README.md              # Theme documentation
+├── AGENTS.md              # Developer guide (this file)
 └── .github/
     ├── ISSUE_TEMPLATE/
     └── pull_request_template.md
@@ -49,9 +47,10 @@ This is a CSS-only theme project. There are no build, test, or lint scripts curr
 **Indentation**: Use 2 spaces (no tabs)
 
 **Naming Conventions**:
-- Use RemNote's CSS classes (e.g., `.rem-text`, `.rem-container`)
-- Keep selectors specific to RemNote elements
-- Avoid overly generic selectors that might affect unintended elements
+- Use RemNote's BEM-style CSS classes (e.g., `.rn-editor`, `.rn-rem-bullet`, `.rn-doc-header`)
+- Prefix all custom properties with `--osaka-` for clarity
+- Keep selectors specific to RemNote elements with `.dark` wrapper
+- Target RemNote's stable design tokens (`.rn-clr-*` classes) for global theming
 
 **Property Organization**:
 ```css
@@ -79,15 +78,14 @@ This is a CSS-only theme project. There are no build, test, or lint scripts curr
 }
 ```
 
-**Color Palette** (based on reference configs):
+**Color Palette** (Osaka Jade theme colors):
 - Background: `#111c18` (dark green-tinted)
-- Foreground: `#C1C497`, `#F7E8B2`, `#F6F5DD` (warm cream/yellow)
-- Accents:
-  - Green: `#549e6a`, `#459451`, `#2DD5B7`
-  - Red: `#FF5345`, `#DB9F9C`
-  - Yellow: `#E5C736`, `#DEB266`
-  - Magenta: `#D2689C`
-  - Muted: `#53685B`, `#32473B`, `#23372B`
+- Foreground: `#D6D5BC`, `#C1C497`, `#F7E8B2`, `#F6F5DD` (warm cream/yellow)
+- Jade Accents: `#549e6a`, `#63b07a`, `#76AD98`, `#81B8A8`, `#72CFA3`, `#9EEBB3`
+- Cyan/Teal: `#2DD5B7`, `#75BBB3`, `#8CD3CB`, `#ACD4CF`
+- Red: `#FF5345`, `#DB9F9C`
+- Yellow: `#E5C736`, `#DEB266`
+- Muted: `#53685B`, `#32473B`, `#23372B`
 
 **CSS Best Practices**:
 - Use CSS custom properties (variables) for colors when possible
@@ -137,14 +135,14 @@ Based on commit history, use conventional commit format:
 
 ### theme.css
 - Main styling file for RemNote elements
-- Currently minimal - add RemNote-specific class styles here
+- Contains 1,299 lines of comprehensive RemNote component styles
+- Organized into 11 major sections with CSS custom properties
 - Test changes by reloading the theme in RemNote
 
-### osaka-jade/ Directory
-- **Do not modify** - reference files only
-- Contains color palette inspiration from author's system configs
-- Use these files to maintain color consistency across the theme
-- Background images can be referenced but aren't loaded by RemNote
+### Color Consistency
+- All colors are defined as CSS custom properties (variables) with `--osaka-` prefix
+- Reference the color palette in this file when making changes
+- Maintain the jade/green aesthetic with warm cream text throughout
 
 ## Common Tasks
 
@@ -156,10 +154,10 @@ Based on commit history, use conventional commit format:
 5. Commit with descriptive message
 
 ### Changing Colors
-1. Reference `osaka-jade/` configs for palette consistency
-2. Update colors in `theme.css`
-3. Ensure sufficient contrast for readability
-4. Test in both light and dark modes (if applicable)
+1. Update CSS custom properties in the `:root` or `.dark` section of `theme.css`
+2. Maintain consistency with the Osaka Jade color palette
+3. Ensure sufficient contrast for readability (WCAG AA minimum)
+4. Test changes across different RemNote components
 
 ### Version Updates
 1. Update `version` in `manifest.json`
@@ -184,9 +182,9 @@ Be clear and concise about visual changes and their impact.
 
 - This is a **visual theme project** - focus is on CSS styling, not functionality
 - No TypeScript, JavaScript, or build tools are involved
-- The `osaka-jade/` directory is for **reference only** - it's not part of the theme package
 - When making color changes, maintain the jade/green aesthetic with warm cream accents
+- All colors use CSS custom properties with `--osaka-` prefix for maintainability
 - Always validate JSON syntax in `manifest.json` before committing
 - Test theme changes by loading in RemNote (manual process)
-- RemNote CSS classes are typically prefixed with `.rem-`
+- RemNote CSS classes use BEM notation and are prefixed with `.rn-`
 - Keep mobile support disabled unless specifically requested

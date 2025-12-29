@@ -1,3 +1,1299 @@
-.rem-text {
-  color: red;
+/*
+ * Osaka Jade - RemNote Theme
+ * A dark theme with jade green accents and warm cream text
+ * Author: elcokiin
+ */
+
+/* ============================================================================
+   1. CSS CUSTOM PROPERTIES (VARIABLES)
+   ============================================================================ */
+
+.dark {
+  /* Background colors */
+  --osaka-bg-darkest: #0d1612;
+  --osaka-bg-base: #111c18;
+  --osaka-bg-elevated-1: #1a2820;
+  --osaka-bg-elevated-2: #23372B;
+  --osaka-bg-elevated-3: #2a3530;
+  --osaka-bg-selected: #364538;
+  --osaka-bg-hover: #32473B;
+  
+  /* Text colors - brightened for better readability */
+  --osaka-text-primary: #D6D5BC;
+  --osaka-text-secondary: #C1C497;
+  --osaka-text-emphasis: #F7E8B2;
+  --osaka-text-bright: #F6F5DD;
+  --osaka-text-muted: #9EEBB3;
+  --osaka-text-disabled: #53685B;
+  
+  /* Jade accent colors - prominent throughout UI */
+  --osaka-jade-primary: #549e6a;
+  --osaka-jade-bright: #63b07a;
+  --osaka-jade-light: #76AD98;
+  --osaka-jade-subtle: #81B8A8;
+  --osaka-jade-vibrant: #72CFA3;
+  --osaka-jade-glow: #9EEBB3;
+  
+  /* Cyan/teal accents for code and special elements */
+  --osaka-cyan-primary: #2DD5B7;
+  --osaka-cyan-medium: #75BBB3;
+  --osaka-cyan-light: #8CD3CB;
+  --osaka-cyan-bright: #ACD4CF;
+  
+  /* State colors */
+  --osaka-red-primary: #FF5345;
+  --osaka-red-muted: #DB9F9C;
+  --osaka-red-dark: #4d221f;
+  
+  --osaka-yellow-primary: #E5C736;
+  --osaka-yellow-muted: #DEB266;
+  --osaka-yellow-dark: #4d4220;
+  
+  --osaka-magenta: #D2689C;
+  --osaka-blue: #509475;
+  
+  /* Selection colors (from btop theme) */
+  --osaka-selection-bg: #364538;
+  --osaka-selection-text: #DEB266;
+  
+  /* Borders */
+  --osaka-border-base: #32473B;
+  --osaka-border-accent: #549e6a;
+  --osaka-border-light: #53685B;
+  
+  /* Shadows - green-tinted */
+  --osaka-shadow-sm: 0 1px 3px rgba(17, 28, 24, 0.5);
+  --osaka-shadow-md: 0 4px 6px rgba(17, 28, 24, 0.6);
+  --osaka-shadow-lg: 0 10px 15px rgba(17, 28, 24, 0.7);
+  --osaka-shadow-xl: 0 20px 25px rgba(17, 28, 24, 0.8);
+}
+
+/* ============================================================================
+   2. GLOBAL THEMING CLASSES (DESIGN TOKENS)
+   ============================================================================ */
+
+/* Background colors */
+.dark .rn-clr-background,
+.dark .rn-clr-background-primary {
+  background-color: var(--osaka-bg-base) !important;
+}
+
+.dark .rn-clr-background-secondary {
+  background-color: var(--osaka-bg-elevated-1) !important;
+}
+
+.dark .rn-clr-background-tertiary {
+  background-color: var(--osaka-bg-elevated-2) !important;
+}
+
+.dark .rn-clr-background-accent {
+  background-color: var(--osaka-jade-primary) !important;
+}
+
+.dark .rn-clr-background-light-accent {
+  background-color: var(--osaka-bg-selected) !important;
+}
+
+.dark .rn-clr-background-elevation-5 {
+  background-color: var(--osaka-bg-elevated-1) !important;
+}
+
+.dark .rn-clr-background-elevation-10 {
+  background-color: #181f1c !important;
+}
+
+.dark .rn-clr-background-elevation-15 {
+  background-color: var(--osaka-bg-elevated-1) !important;
+}
+
+.dark .rn-clr-background-elevation-20 {
+  background-color: #1d2621 !important;
+}
+
+.dark .rn-clr-background-elevation-30 {
+  background-color: var(--osaka-bg-elevated-2) !important;
+}
+
+.dark .rn-clr-background-elevation-40 {
+  background-color: #283229 !important;
+}
+
+.dark .rn-clr-background-elevation-50 {
+  background-color: var(--osaka-bg-elevated-3) !important;
+}
+
+.dark .rn-clr-background-elevation-60 {
+  background-color: #2f3a31 !important;
+}
+
+.dark .rn-clr-background-elevation-70 {
+  background-color: #334136 !important;
+}
+
+.dark .rn-clr-background-elevation-80 {
+  background-color: var(--osaka-bg-hover) !important;
+}
+
+.dark .rn-clr-background-elevation-90 {
+  background-color: var(--osaka-bg-selected) !important;
+}
+
+.dark .rn-clr-background-elevation-100 {
+  background-color: #3d5242 !important;
+}
+
+.dark .rn-clr-background-state-disabled {
+  background-color: var(--osaka-bg-elevated-2) !important;
+}
+
+.dark .rn-clr-background-overlay-dark {
+  background-color: rgba(17, 28, 24, 0.8) !important;
+}
+
+.dark .rn-clr-background-overlay-light {
+  background-color: rgba(17, 28, 24, 0.4) !important;
+}
+
+.dark .rn-clr-background-positive {
+  background-color: var(--osaka-jade-primary) !important;
+}
+
+.dark .rn-clr-background-light-positive {
+  background-color: rgba(84, 158, 106, 0.15) !important;
+}
+
+.dark .rn-clr-background-negative {
+  background-color: var(--osaka-red-primary) !important;
+}
+
+.dark .rn-clr-background-light-negative {
+  background-color: rgba(255, 83, 69, 0.15) !important;
+}
+
+.dark .rn-clr-background-warning {
+  background-color: var(--osaka-yellow-primary) !important;
+}
+
+.dark .rn-clr-background-light-warning {
+  background-color: rgba(229, 199, 54, 0.15) !important;
+}
+
+.dark .rn-clr-background-inverse-primary {
+  background-color: var(--osaka-text-bright) !important;
+}
+
+.dark .rn-clr-background-inverse-secondary {
+  background-color: var(--osaka-text-secondary) !important;
+}
+
+.dark .rn-clr-background-always-dark {
+  background-color: var(--osaka-bg-darkest) !important;
+}
+
+.dark .rn-clr-background-always-light {
+  background-color: var(--osaka-text-bright) !important;
+}
+
+.dark .rn-clr-background-logo-color {
+  background-color: var(--osaka-jade-primary) !important;
+}
+
+/* Content (text) colors */
+.dark .rn-clr-content-primary,
+.dark .rn-clr-content-pirmary {
+  color: var(--osaka-text-primary) !important;
+}
+
+.dark .rn-clr-content-secondary,
+.dark .rn-clr-content-second {
+  color: var(--osaka-text-secondary) !important;
+}
+
+.dark .rn-clr-content-tertiary {
+  color: var(--osaka-text-muted) !important;
+}
+
+.dark .rn-clr-content-accent {
+  color: var(--osaka-jade-bright) !important;
+}
+
+.dark .rn-clr-content-on-color {
+  color: var(--osaka-bg-base) !important;
+}
+
+.dark .rn-clr-content-on-color-inverse {
+  color: var(--osaka-text-bright) !important;
+}
+
+.dark .rn-clr-content-state-disabled {
+  color: var(--osaka-text-disabled) !important;
+}
+
+.dark .rn-clr-content-positive {
+  color: var(--osaka-jade-vibrant) !important;
+}
+
+.dark .rn-clr-content-negative {
+  color: var(--osaka-red-primary) !important;
+}
+
+.dark .rn-clr-content-warning,
+.dark .rn-clr-content-state-warning {
+  color: var(--osaka-yellow-primary) !important;
+}
+
+.dark .rn-clr-content-inverse-primary {
+  color: var(--osaka-bg-base) !important;
+}
+
+.dark .rn-clr-content-inverse-secondary {
+  color: var(--osaka-bg-elevated-2) !important;
+}
+
+.dark .rn-clr-content-inverse-tertiary {
+  color: var(--osaka-bg-hover) !important;
+}
+
+.dark .rn-clr-content-logo-color {
+  color: var(--osaka-jade-primary) !important;
+}
+
+/* Border colors */
+.dark .rn-clr-border-opaque {
+  border-color: var(--osaka-border-base) !important;
+}
+
+.dark .rn-clr-border-selected {
+  border-color: var(--osaka-jade-primary) !important;
+}
+
+.dark .rn-clr-border-accent {
+  border-color: var(--osaka-jade-primary) !important;
+}
+
+.dark .rn-clr-border-accent-light,
+.dark .rn-clr-border-light-accent {
+  border-color: var(--osaka-jade-light) !important;
+}
+
+.dark .rn-clr-border-state-disabled {
+  border-color: var(--osaka-text-disabled) !important;
+}
+
+.dark .rn-clr-border-negative {
+  border-color: var(--osaka-red-primary) !important;
+}
+
+.dark .rn-clr-border-warning {
+  border-color: var(--osaka-yellow-primary) !important;
+}
+
+.dark .rn-clr-border-positive {
+  border-color: var(--osaka-jade-primary) !important;
+}
+
+.dark .rn-clr-border-inverse-opaque {
+  border-color: var(--osaka-text-secondary) !important;
+}
+
+.dark .rn-clr-border-inverse-selected {
+  border-color: var(--osaka-text-bright) !important;
+}
+
+/* Shadow colors */
+.dark .rn-clr-shadow-default,
+.dark .rn-clr-shadow-card {
+  box-shadow: var(--osaka-shadow-sm) !important;
+}
+
+.dark .rn-clr-shadow-menu,
+.dark .rn-clr-shadow-elevation-5,
+.dark .rn-clr-shadow-elevation-10 {
+  box-shadow: var(--osaka-shadow-md) !important;
+}
+
+.dark .rn-clr-shadow-modal,
+.dark .rn-clr-shadow-elevation-15,
+.dark .rn-clr-shadow-elevation-20,
+.dark .rn-clr-shadow-elevation-30 {
+  box-shadow: var(--osaka-shadow-lg) !important;
+}
+
+.dark .rn-clr-shadow-elevation-40,
+.dark .rn-clr-shadow-elevation-50,
+.dark .rn-clr-shadow-close-keyboard-menu {
+  box-shadow: var(--osaka-shadow-xl) !important;
+}
+
+/* ============================================================================
+   3. EDITOR & CORE COMPONENTS
+   ============================================================================ */
+
+/* Editor container and text */
+.dark .rn-editor,
+.dark .rn-editor-container {
+  background-color: var(--osaka-bg-base);
+  color: var(--osaka-text-primary);
+}
+
+.dark .rn-editor-divider {
+  border-color: var(--osaka-border-base);
+}
+
+/* Text selection */
+.dark ::selection,
+.dark .rn-editor ::selection {
+  background-color: var(--osaka-selection-bg);
+  color: var(--osaka-selection-text);
+}
+
+/* Rem bullets - solid jade circles */
+.dark .rn-rem-bullet {
+  background-color: var(--osaka-jade-primary);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-rem-bullet:hover {
+  background-color: var(--osaka-jade-bright);
+  border-color: var(--osaka-jade-bright);
+}
+
+.dark .rn-bullet-container {
+  color: var(--osaka-jade-primary);
+}
+
+.dark .rn-rem-icon-bullet {
+  color: var(--osaka-jade-primary);
+}
+
+.dark .rn-rem-icon-bullet:hover {
+  color: var(--osaka-jade-bright);
+}
+
+/* Add rem button */
+.dark .rn-add-rem-button {
+  color: var(--osaka-jade-primary);
+  background-color: transparent;
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-add-rem-button:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-hover);
+  border-color: var(--osaka-jade-primary);
+}
+
+/* Fast rem editor */
+.dark .rn-fast-rem-container,
+.dark .rn-fast-rem-editor-container {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+/* Rem stack arrows */
+.dark .rn-rem-stack-arrow {
+  color: var(--osaka-jade-primary);
+}
+
+/* Text content */
+.dark .rn-text {
+  color: var(--osaka-text-primary);
+}
+
+/* ============================================================================
+   4. NAVIGATION & ORGANIZATION
+   ============================================================================ */
+
+/* Document header */
+.dark .rn-doc-header {
+  background-color: var(--osaka-bg-base);
+  border-bottom-color: var(--osaka-border-base);
+}
+
+/* Document title */
+.dark .rn-doc-title {
+  color: var(--osaka-text-emphasis);
+}
+
+/* Document wrapper and container */
+.dark .rn-document,
+.dark .rn-document-wrapper {
+  background-color: var(--osaka-bg-base);
+  color: var(--osaka-text-primary);
+}
+
+/* Tags */
+.dark .rn-tag {
+  background-color: var(--osaka-bg-selected);
+  color: var(--osaka-yellow-muted);
+  border: 1px solid var(--osaka-jade-primary);
+}
+
+.dark .rn-tag:hover {
+  background-color: var(--osaka-bg-hover);
+  border-color: var(--osaka-jade-bright);
+}
+
+.dark .rn-tag-container {
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-tag-list-label {
+  color: var(--osaka-text-secondary);
+}
+
+/* Sidebars */
+.dark .rn-sidebar,
+.dark .rn-document-sidebar,
+.dark .rn-plugin-sidebar {
+  background-color: var(--osaka-bg-darkest);
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-sidebar-counter {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+}
+
+.dark .rn-sidebar-flashcards-link {
+  color: var(--osaka-text-secondary);
+}
+
+.dark .rn-sidebar-flashcards-link:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-elevated-1);
+}
+
+.dark .rn-left-sidebar-tutorial-goal,
+.dark .rn-left-sidebar-onboarding {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-left-sidebar-onboarding-search-box {
+  background-color: var(--osaka-bg-base);
+  border-color: var(--osaka-border-accent);
+}
+
+/* Navigation */
+.dark .rn-navigation-bar {
+  background-color: var(--osaka-bg-darkest);
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-nav-tab-button {
+  color: var(--osaka-text-secondary);
+}
+
+.dark .rn-nav-tab-button:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-elevated-1);
+}
+
+.dark .rn-back-button,
+.dark .rn-forward-button {
+  color: var(--osaka-jade-primary);
+}
+
+.dark .rn-back-button:hover,
+.dark .rn-forward-button:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-hover);
+}
+
+/* All Notes container */
+.dark .rn-all-notes {
+  background-color: var(--osaka-bg-base);
+}
+
+/* Document preview */
+.dark .rn-document-preview {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-document-preview:hover {
+  background-color: var(--osaka-bg-elevated-2);
+  border-color: var(--osaka-jade-primary);
+}
+
+/* Pane */
+.dark .rn-pane {
+  background-color: var(--osaka-bg-base);
+  border-color: var(--osaka-border-base);
+}
+
+/* Platform indicator */
+.dark .rn-platform {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+/* Date headers */
+.dark .rn-date-header-item {
+  color: var(--osaka-jade-bright);
+}
+
+.dark .rn-day-with-rem {
+  border-color: var(--osaka-jade-primary);
+}
+
+/* ============================================================================
+   5. LEARNING & FLASHCARDS
+   ============================================================================ */
+
+/* Queue container */
+.dark .rn-queue-container {
+  background-color: var(--osaka-bg-elevated-1);
+}
+
+.dark .rn-queue {
+  background-color: var(--osaka-bg-base);
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-queue-rem {
+  color: var(--osaka-text-primary);
+}
+
+.dark .rn-queue-rem:hover {
+  background-color: var(--osaka-bg-hover);
+}
+
+/* Flashcards */
+.dark .rn-flashcards-edit,
+.dark .rn-flashcards-home,
+.dark .rn-flashcards-page-container {
+  background-color: var(--osaka-bg-base);
+}
+
+.dark .rn-question-rem {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+/* Flashcard delimiter (-> arrows) */
+.dark .rn-flashcard-delimiter {
+  color: var(--osaka-yellow-primary);
+  font-weight: 600;
+}
+
+/* Deck list */
+.dark .rn-deck-list {
+  background-color: var(--osaka-bg-elevated-1);
+}
+
+.dark .rn-study-deck-btn {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-study-deck-btn:hover {
+  background-color: var(--osaka-jade-bright);
+  border-color: var(--osaka-jade-bright);
+}
+
+.dark .rn-change-deck-status {
+  color: var(--osaka-text-secondary);
+}
+
+.dark .rn-change-deck-status:hover {
+  color: var(--osaka-jade-bright);
+}
+
+/* Practice buttons */
+.dark .rn-practice-rem-in-this-folder {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-practice-rem-in-this-folder:hover {
+  background-color: var(--osaka-jade-bright);
+}
+
+/* Learning goal slider */
+.dark .rn-learning-goal-slider {
+  background-color: var(--osaka-border-base);
+}
+
+.dark .rn-learning-goal-slider::-webkit-slider-thumb {
+  background-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-learning-goal-slider::-moz-range-thumb {
+  background-color: var(--osaka-jade-primary);
+}
+
+/* Edit later */
+.dark .rn-edit-later {
+  color: var(--osaka-yellow-primary);
+}
+
+/* ============================================================================
+   6. INTERACTIVE COMPONENTS
+   ============================================================================ */
+
+/* Omnibar */
+.dark .rn-omnibar {
+  background-color: var(--osaka-bg-elevated-1);
+  border: 2px solid var(--osaka-jade-primary);
+  box-shadow: var(--osaka-shadow-lg);
+}
+
+.dark .rn-omnibar-button {
+  color: var(--osaka-jade-primary);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-omnibar-button:hover {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+}
+
+/* Search */
+.dark .rn-search {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-search-portal {
+  background-color: var(--osaka-bg-elevated-1);
+  box-shadow: var(--osaka-shadow-lg);
+  border: 1px solid var(--osaka-jade-primary);
+}
+
+.dark .rn-search-portal-query {
+  color: var(--osaka-text-primary);
+}
+
+.dark .rn-search-button {
+  color: var(--osaka-jade-primary);
+}
+
+.dark .rn-search-button:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-hover);
+}
+
+/* Settings modal */
+.dark .rn-settings {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-border-base);
+}
+
+/* Popups and menus */
+.dark .rn-popup,
+.dark .rn-menu {
+  background-color: var(--osaka-bg-elevated-1);
+  border: 1px solid var(--osaka-jade-primary);
+  box-shadow: var(--osaka-shadow-md);
+}
+
+.dark .rn-popup-background {
+  background-color: rgba(17, 28, 24, 0.7);
+}
+
+.dark .rn-doc-menu,
+.dark .rn-sort-popup {
+  background-color: var(--osaka-bg-elevated-1);
+  border: 1px solid var(--osaka-jade-primary);
+}
+
+.dark .rn-paste-popup {
+  background-color: var(--osaka-bg-elevated-2);
+  border-color: var(--osaka-jade-primary);
+}
+
+/* Dialogs */
+.dark .rn-dialog {
+  background-color: var(--osaka-bg-elevated-1);
+  border: 1px solid var(--osaka-jade-primary);
+  box-shadow: var(--osaka-shadow-xl);
+}
+
+.dark .rn-dialog-background {
+  background-color: rgba(17, 28, 24, 0.8);
+}
+
+.dark .rn-dialog-overlay {
+  background-color: rgba(17, 28, 24, 0.6);
+}
+
+/* Buttons */
+.dark .rn-button {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-button:hover {
+  background-color: var(--osaka-jade-bright);
+  border-color: var(--osaka-jade-bright);
+}
+
+.dark .rn-button.rn-primary {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+}
+
+.dark .rn-icon-button {
+  color: var(--osaka-text-secondary);
+}
+
+.dark .rn-icon-button:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-hover);
+}
+
+.dark .rn-add-button,
+.dark .rn-add-document-button,
+.dark .rn-bottom-add-button {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+}
+
+.dark .rn-add-button:hover,
+.dark .rn-add-document-button:hover,
+.dark .rn-bottom-add-button:hover {
+  background-color: var(--osaka-jade-bright);
+}
+
+.dark .rn-close-button,
+.dark .rn-delete-button {
+  color: var(--osaka-red-muted);
+}
+
+.dark .rn-close-button:hover,
+.dark .rn-delete-button:hover {
+  color: var(--osaka-red-primary);
+  background-color: var(--osaka-red-dark);
+}
+
+.dark .rn-edit-document-button {
+  color: var(--osaka-jade-primary);
+}
+
+.dark .rn-edit-document-button:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-hover);
+}
+
+.dark .rn-help-button {
+  color: var(--osaka-cyan-medium);
+}
+
+.dark .rn-help-button:hover {
+  color: var(--osaka-cyan-light);
+}
+
+.dark .rn-labeled-button {
+  border-color: var(--osaka-border-base);
+  color: var(--osaka-text-secondary);
+}
+
+.dark .rn-labeled-button:hover {
+  border-color: var(--osaka-jade-primary);
+  color: var(--osaka-jade-bright);
+}
+
+/* Checkboxes */
+.dark .rn-checkbox {
+  border-color: var(--osaka-border-base);
+  background-color: transparent;
+}
+
+.dark .rn-checkbox:checked {
+  background-color: var(--osaka-jade-primary);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-checkbox:hover {
+  border-color: var(--osaka-jade-bright);
+}
+
+/* Radio buttons */
+.dark .rn-radio {
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-radio:checked {
+  border-color: var(--osaka-jade-primary);
+  background-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-radio-group {
+  border-color: var(--osaka-border-base);
+}
+
+/* Switches */
+.dark .rn-switch {
+  background-color: var(--osaka-border-base);
+}
+
+.dark .rn-switch[aria-checked="true"] {
+  background-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-switch-handle {
+  background-color: var(--osaka-text-bright);
+}
+
+/* Progress bars */
+.dark .rn-progress-bar {
+  background-color: var(--osaka-border-base);
+}
+
+.dark .rn-progress-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--osaka-jade-primary), var(--osaka-jade-light));
+}
+
+.dark .rn-progress-bar::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--osaka-jade-primary), var(--osaka-jade-light));
+}
+
+/* Date picker */
+.dark .rn-date-picker-range-mode {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-date-picker-range-start-active,
+.dark .rn-date-picker-range-end-active {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+}
+
+/* ============================================================================
+   7. CONTENT DISPLAY
+   ============================================================================ */
+
+/* Tables */
+.dark .rn-table-header {
+  background-color: var(--osaka-bg-elevated-1);
+  color: var(--osaka-text-emphasis);
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-table-row {
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-table-row:hover {
+  background-color: var(--osaka-bg-hover);
+}
+
+.dark .rn-table-row-container {
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-table-row-menu,
+.dark .rn-table-row-six-dot-menu {
+  color: var(--osaka-text-secondary);
+}
+
+.dark .rn-table-row-menu:hover,
+.dark .rn-table-row-six-dot-menu:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-hover);
+}
+
+.dark .rn-table-add-row,
+.dark .rn-table-row-add-button {
+  color: var(--osaka-jade-primary);
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-table-add-row:hover,
+.dark .rn-table-row-add-button:hover {
+  background-color: var(--osaka-bg-hover);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-table-add-column,
+.dark .rn-table-add-column-placeholder {
+  border-color: var(--osaka-border-base);
+  color: var(--osaka-jade-primary);
+}
+
+.dark .rn-table-add-column:hover {
+  background-color: var(--osaka-bg-hover);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-table-column-toolbar-menu {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-column-header {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-column-header-non-primary {
+  background-color: var(--osaka-bg-base);
+}
+
+.dark .rn-column-resize-handle {
+  background-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-sticky-header {
+  background-color: var(--osaka-bg-elevated-1);
+  box-shadow: var(--osaka-shadow-sm);
+}
+
+.dark .rn-sticky-column-shadow {
+  box-shadow: var(--osaka-shadow-md);
+}
+
+.dark .rn-table-row-for-sticky {
+  background-color: var(--osaka-bg-base);
+}
+
+.dark .rn-row-open-button {
+  color: var(--osaka-jade-primary);
+}
+
+.dark .rn-field-value-renderer {
+  color: var(--osaka-text-primary);
+}
+
+/* Code blocks */
+.dark .rn-code-node {
+  background-color: var(--osaka-bg-darkest);
+  border: 1px solid var(--osaka-border-base);
+  color: var(--osaka-cyan-light);
+}
+
+/* Quotes */
+.dark .rn-quote {
+  background-color: var(--osaka-bg-elevated-1);
+  border-left: 4px solid var(--osaka-jade-primary);
+}
+
+.dark .rn-quote-inner,
+.dark .rn-quote-content {
+  color: var(--osaka-text-secondary);
+}
+
+/* Links and references - brighter jade */
+.dark .rn-rem-reference {
+  color: var(--osaka-jade-bright);
+  text-decoration: underline;
+  text-decoration-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-rem-reference:hover {
+  color: var(--osaka-jade-vibrant);
+  text-decoration-color: var(--osaka-jade-bright);
+}
+
+/* Highlights */
+.dark .rn-highlight-reference {
+  background-color: rgba(222, 178, 102, 0.25);
+  border-bottom: 2px solid var(--osaka-yellow-muted);
+}
+
+/* HTML viewer */
+.dark .rn-html-viewer {
+  background-color: var(--osaka-bg-base);
+  color: var(--osaka-text-primary);
+}
+
+.dark .rn-html-highlight {
+  background-color: var(--osaka-selection-bg);
+}
+
+/* PDF viewer */
+.dark .rn-pdf-viewer {
+  background-color: var(--osaka-bg-darkest);
+}
+
+/* Cards */
+.dark .rn-card {
+  background-color: var(--osaka-bg-elevated-1);
+  border: 1px solid var(--osaka-border-base);
+  box-shadow: var(--osaka-shadow-sm);
+}
+
+.dark .rn-card:hover {
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-card-delimiter {
+  border-color: var(--osaka-border-base);
+}
+
+.dark .rn-list-card-remaining-items {
+  color: var(--osaka-text-muted);
+}
+
+/* Inline fields */
+.dark .rn-inline-field-title {
+  color: var(--osaka-jade-bright);
+  font-weight: 600;
+}
+
+/* Fill in blank */
+.dark .rn-fill-in-blank {
+  background-color: var(--osaka-bg-selected);
+  border-bottom: 2px solid var(--osaka-jade-primary);
+  color: var(--osaka-text-primary);
+}
+
+/* Cloze button */
+.dark .rn-cloze-button {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+}
+
+.dark .rn-cloze-button:hover {
+  background-color: var(--osaka-jade-bright);
+}
+
+/* ============================================================================
+   8. TYPOGRAPHY
+   ============================================================================ */
+
+/* Headings - brightest text for emphasis */
+.dark .rn-text-heading-xsmall,
+.dark .rn-text-heading-small,
+.dark .rn-text-heading-medium,
+.dark .rn-text-heading-large {
+  color: var(--osaka-text-emphasis);
+}
+
+/* Labels - secondary brightness */
+.dark .rn-text-label-subheading,
+.dark .rn-text-label-small,
+.dark .rn-text-label-medium,
+.dark .rn-text-label-base,
+.dark .rn-text-label-large,
+.dark .rn-text-label-xlarge {
+  color: var(--osaka-text-secondary);
+}
+
+/* Paragraphs - primary text */
+.dark .rn-text-paragraph-xsmall,
+.dark .rn-text-paragraph-small,
+.dark .rn-text-paragraph-medium,
+.dark .rn-text-paragraph-base,
+.dark .rn-text-paragraph-large,
+.dark .rn-text-paragraph-xlarge {
+  color: var(--osaka-text-primary);
+}
+
+/* Font weights */
+.dark .rn-fontweight-regular {
+  font-weight: 400;
+}
+
+.dark .rn-fontweight-medium {
+  font-weight: 500;
+}
+
+.dark .rn-fontweight-semibold {
+  font-weight: 600;
+}
+
+/* Font sizes - preserve hierarchy */
+.dark .rn-fontsize-xsmall { font-size: 0.75rem; }
+.dark .rn-fontsize-small,
+.dark .rn-fontsize-sm { font-size: 0.875rem; }
+.dark .rn-fontsize-base { font-size: 1rem; }
+.dark .rn-fontsize-medium { font-size: 1rem; }
+.dark .rn-fontsize-large { font-size: 1.125rem; }
+.dark .rn-fontsize-xlarge { font-size: 1.25rem; }
+.dark .rn-fontsize-xxlarge { font-size: 1.5rem; }
+.dark .rn-fontsize-xxxlarge { font-size: 1.875rem; }
+.dark .rn-fontsize-title { font-size: 2.25rem; }
+
+/* Line heights */
+.dark .rn-lineheight-xsmall { line-height: 1.2; }
+.dark .rn-lineheight-small { line-height: 1.3; }
+.dark .rn-lineheight-medium { line-height: 1.4; }
+.dark .rn-lineheight-base { line-height: 1.5; }
+.dark .rn-lineheight-large { line-height: 1.6; }
+.dark .rn-lineheight-xlarge { line-height: 1.7; }
+.dark .rn-lineheight-xxlarge { line-height: 1.8; }
+.dark .rn-lineheight-xxxlarge { line-height: 2; }
+.dark .rn-lineheight-title { line-height: 1.2; }
+
+/* ============================================================================
+   9. UTILITY & POLISH
+   ============================================================================ */
+
+/* Notifications and toasts */
+.dark .rn-toast {
+  background-color: var(--osaka-bg-elevated-2);
+  border: 1px solid var(--osaka-jade-primary);
+  box-shadow: var(--osaka-shadow-lg);
+  color: var(--osaka-text-primary);
+}
+
+.dark .rn-toast-container {
+  background-color: transparent;
+}
+
+.dark .rn-notification-banner {
+  background-color: var(--osaka-bg-elevated-1);
+  border: 1px solid var(--osaka-jade-primary);
+  color: var(--osaka-text-primary);
+}
+
+/* Work in progress indicator */
+.dark .rn-work-in-progress-tag,
+.dark .rn-work-in-progress-portal,
+.dark .rn-work-in-progress-rem {
+  background-color: var(--osaka-yellow-dark);
+  color: var(--osaka-yellow-primary);
+  border-color: var(--osaka-yellow-primary);
+}
+
+/* Job indicator */
+.dark .rn-job-indicator-button {
+  background-color: var(--osaka-jade-primary);
+  color: var(--osaka-bg-base);
+}
+
+/* Dividers */
+.dark .rn-divider {
+  background-color: var(--osaka-border-base);
+}
+
+/* Account capsule */
+.dark .rn-account-capsule {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+/* Article header (mobile) */
+.dark .rn-article-header,
+.dark .rn-page-header-mobile {
+  background-color: var(--osaka-bg-base);
+  border-bottom-color: var(--osaka-border-base);
+}
+
+/* Plugin components */
+.dark .rn-plugin {
+  background-color: var(--osaka-bg-elevated-1);
+  border: 1px solid var(--osaka-border-base);
+}
+
+.dark .rn-plugin:hover {
+  border-color: var(--osaka-jade-primary);
+}
+
+.dark .rn-plugin-list {
+  background-color: var(--osaka-bg-base);
+}
+
+.dark .rn-plugin-root {
+  color: var(--osaka-text-primary);
+}
+
+.dark .rn-plugin-logo {
+  border-color: var(--osaka-border-base);
+}
+
+/* List numbers */
+.dark .rn-list-number,
+.dark .rn-list-number-wrapper {
+  color: var(--osaka-jade-primary);
+}
+
+/* Ctrl+F search in page */
+.dark .rn-ctrl-f {
+  background-color: var(--osaka-bg-elevated-1);
+  border: 1px solid var(--osaka-jade-primary);
+}
+
+/* Add document to folder */
+.dark .rn-add-document-to-folder {
+  color: var(--osaka-jade-primary);
+}
+
+.dark .rn-add-document-to-folder:hover {
+  color: var(--osaka-jade-bright);
+  background-color: var(--osaka-bg-hover);
+}
+
+/* Floating toolbar */
+.dark .rn-floating-toolbar-wrapper {
+  background-color: transparent;
+}
+
+.dark .rn-floating-toolbar {
+  background-color: var(--osaka-bg-elevated-2);
+  border: 1px solid var(--osaka-jade-primary);
+  box-shadow: var(--osaka-shadow-md);
+}
+
+.dark .rn-background-toolbar {
+  background-color: var(--osaka-bg-elevated-1);
+  border-color: var(--osaka-jade-primary);
+}
+
+/* Mobile sync status */
+.dark .rn-mobile-sync-status {
+  color: var(--osaka-jade-bright);
+}
+
+/* Color overrides */
+.dark .rn-colors-white {
+  color: var(--osaka-text-bright) !important;
+}
+
+.dark .rn-colors-black {
+  color: var(--osaka-bg-base) !important;
+}
+
+.dark .rn-colors-gray-60 {
+  color: var(--osaka-text-secondary) !important;
+}
+
+/* Override classes */
+.dark .rn-override,
+.dark .rn-usersnap-override {
+  background-color: var(--osaka-bg-elevated-1) !important;
+  color: var(--osaka-text-primary) !important;
+}
+
+/* ============================================================================
+   10. SCROLLBARS (WEBKIT)
+   ============================================================================ */
+
+.dark ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--osaka-bg-base);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--osaka-jade-primary);
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--osaka-jade-bright);
+}
+
+/* ============================================================================
+   11. FOCUS INDICATORS
+   ============================================================================ */
+
+.dark *:focus {
+  outline: 2px solid var(--osaka-jade-primary);
+  outline-offset: 2px;
+}
+
+.dark *:focus-visible {
+  outline: 2px solid var(--osaka-jade-bright);
+  outline-offset: 2px;
 }
