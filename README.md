@@ -1,11 +1,15 @@
 # Osaka Jade - RemNote Theme
 
-A dark theme for RemNote with prominent jade green accents and warm cream text, inspired by Osaka aesthetics.
-
 ![Version](https://img.shields.io/badge/version-0.1.0-green)
 ![Theme](https://img.shields.io/badge/theme-dark-black)
 
-## Features
+A dark theme for RemNote with prominent jade green accents and warm cream text, inspired by Osaka aesthetics.
+
+![Osaka Jade Theme Preview](images/all-notes.png)
+
+---
+
+## ✨ Features
 
 - **Prominent Jade Accents**: Solid jade green bullets, borders, and interactive elements throughout the UI
 - **Enhanced Readability**: Brightened warm cream text (`#D6D5BC`) for comfortable reading on dark backgrounds
@@ -16,7 +20,12 @@ A dark theme for RemNote with prominent jade green accents and warm cream text, 
 - **Dark Green-Tinted Background**: Base color `#111c18` with progressive elevation levels
 - **Yellow Flashcard Delimiters**: Question/answer separators in bright yellow for visibility
 
-## Color Palette
+---
+
+## 🎨 Color Palette
+
+<details>
+<summary>Click to expand color palette details</summary>
 
 ### Background Colors
 - **Darkest**: `#0d1612` (sidebars, code blocks)
@@ -47,23 +56,24 @@ A dark theme for RemNote with prominent jade green accents and warm cream text, 
 - **Warning/Yellow**: `#E5C736`, `#DEB266`
 - **Success/Green**: Jade variants
 
-## Installation
+</details>
 
-### Method 1: Manual Installation
-1. Download or clone this repository
-2. Open RemNote and navigate to **Settings → Appearance → Themes**
-3. Click **"Add Custom Theme"**
-4. Select the folder containing `manifest.json`
-5. Apply the "Osaka Jade" theme
+---
 
-### Method 2: Direct Load (Development)
-1. Clone this repository to your local machine
-2. In RemNote, go to **Settings → Appearance → Themes**
-3. Click **"Add Custom Theme"**
-4. Browse to the cloned directory
-5. The theme will auto-reload when you edit `theme.css`
+## 📸 See It In Action
 
-## What's Styled
+![Bullet Text Styling](images/bullet-text.png)
+
+![Flashcard Interface](images/flashcard.png)
+
+![Handwriting Support](images/handwrite.png)
+
+---
+
+## 🎯 What's Styled
+
+<details>
+<summary>Click to expand comprehensive component list</summary>
 
 This theme comprehensively styles all RemNote components:
 
@@ -127,7 +137,11 @@ This theme comprehensively styles all RemNote components:
 - Job indicators
 - Account capsule
 
-## Design Philosophy
+</details>
+
+---
+
+## 💡 Design Philosophy
 
 The Osaka Jade theme follows these principles:
 
@@ -139,7 +153,9 @@ The Osaka Jade theme follows these principles:
 6. **Yellow Accents**: Tags and flashcard delimiters use warm yellow for complementary contrast
 7. **Accessibility**: Focus indicators and selection states are clearly visible
 
-## Development
+---
+
+## 🛠️ Development
 
 This theme uses:
 - **CSS Custom Properties**: All colors defined as CSS variables for easy maintenance
@@ -149,24 +165,14 @@ This theme uses:
 
 To modify the theme:
 1. Edit `theme.css`
-2. Reload the theme in RemNote (Settings → Appearance → Themes → Reload)
+2. Reload the theme in RemNote
 3. Test changes across different RemNote components
 
 See `AGENTS.md` for detailed code style guidelines and development practices.
 
-## Version History
+---
 
-### 0.1.0 (Current)
-- Initial comprehensive theme release
-- All RemNote UI components styled
-- Prominent jade accents throughout
-- Brightened text for better readability
-- Solid jade circle bullets
-- Bright jade links and references
-- Yellow flashcard delimiters
-- Selection colors from Osaka palette
-
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please:
 1. Follow the code style in `AGENTS.md`
@@ -174,17 +180,23 @@ Contributions are welcome! Please:
 3. Maintain color consistency with the Osaka Jade palette
 4. Update this README if adding major features
 
-## License
+---
+
+## 📄 License
 
 This theme is released under MIT License. Feel free to modify and share.
 
-## Author
+---
+
+## 👤 Author
 
 **elcokiin**
 
 Inspired by the Osaka aesthetic and personal Arch Linux system theme.
 
-## Acknowledgments
+---
+
+## 🙏 Acknowledgments
 
 - RemNote team for the extensible theming system and CSS class documentation
 - The Osaka color palette that inspired this theme
